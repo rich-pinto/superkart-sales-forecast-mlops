@@ -98,10 +98,10 @@ def main():
     test_df.to_csv("data/test.csv", index=False)
 
     # Upload train/test back to HF Dataset Hub (rubric)
-    api = HfApi()
 
-    api.upload_file(path_or_fileobj="data/train.csv", path_in_repo="data/train.csv", repo_id=dataset_repo_id, repo_type="dataset")
-    api.upload_file(path_or_fileobj="data/test.csv", path_in_repo="data/test.csv", repo_id=dataset_repo_id, repo_type="dataset")
+    api = HfApi()
+    api.upload_folder(folder_path="data", path_in_repo="data", repo_id=dataset_repo_id, repo_type="dataset")
+    print("✅ Uploaded train/test to HF dataset repo in a single commit.")
 
     print("✅ Training complete | RMSE:", rmse, "| MAE:", mae, "| R2:", r2)
 
