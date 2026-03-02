@@ -99,8 +99,9 @@ def main():
 
     # Upload train/test back to HF Dataset Hub (rubric)
     api = HfApi()
-    api.upload_file("data/train.csv", "data/train.csv", repo_id=dataset_repo_id, repo_type="dataset")
-    api.upload_file("data/test.csv", "data/test.csv", repo_id=dataset_repo_id, repo_type="dataset")
+
+    api.upload_file(path_or_fileobj="data/train.csv", path_in_repo="data/train.csv", repo_id=dataset_repo_id, repo_type="dataset")
+    api.upload_file(path_or_fileobj="data/test.csv", path_in_repo="data/test.csv", repo_id=dataset_repo_id, repo_type="dataset")
 
     print("✅ Training complete | RMSE:", rmse, "| MAE:", mae, "| R2:", r2)
 
