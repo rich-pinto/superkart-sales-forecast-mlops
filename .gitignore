@@ -4,8 +4,12 @@ __pycache__/
 .env
 .DS_Store
 
-# Keep HF as source of truth for datasets/models
-# (comment these out if you intentionally want to commit CSVs/artifacts)
-# data/*.csv
-# artifacts/*.joblib
-# artifacts/*.json
+# Do NOT commit large artifacts (stored on Hugging Face)
+artifacts/*.joblib
+artifacts/*.pkl
+artifacts/*.bin
+artifacts/*.onnx
+artifacts/*.pt
+artifacts/*.h5
+artifacts/*.json
+data/*.csv
