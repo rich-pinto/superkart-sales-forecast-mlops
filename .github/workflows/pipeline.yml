@@ -28,9 +28,6 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          if [ -f deploy/requirements.txt ]; then pip install -r deploy/requirements.txt || true; fi
-          if [ -f deployment/requirements.txt ]; then pip install -r deployment/requirements.txt || true; fi
-          # Common deps (safe to install if missing)
           pip install pandas==2.2.2 numpy==2.0.2 scikit-learn==1.6.1 joblib==1.4.2 huggingface_hub==0.24.6 streamlit==1.36.0 pyyaml==6.0.2
 
       - name: Verify secrets exist
@@ -45,21 +42,16 @@ jobs:
           PY
 
       - name: Data Registration (HF Dataset Hub)
-        run: |
-          python src/register_dataset.py
+        run: python src/register_dataset.py
 
       - name: Data Preparation + Model Training + Evaluation
-        run: |
-          python src/train.py
+        run: python src/train.py
 
       - name: Model Registration (HF Model Hub)
-        run: |
-          python src/register_model.py
+        run: python src/register_model.py
 
       - name: Build Deployment Assets (Docker Space)
-        run: |
-          python src/build_space_files.py
+        run: python src/build_space_files.py
 
       - name: Deploy/Update HF Space (Streamlit via Docker)
-        run: |
-          python deployment/push_space.py
+        run: python deployment/push_space.py

@@ -12,4 +12,6 @@ artifacts/*.onnx
 artifacts/*.pt
 artifacts/*.h5
 artifacts/*.json
+
+# Do NOT commit datasets (stored on Hugging Face)
 data/*.csv
