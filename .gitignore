@@ -5,5 +5,13 @@ __pycache__/
 .DS_Store
 
 # Do NOT commit large artifacts (stored on Hugging Face)
-artifacts/
-data/
+artifacts/*.joblib
+artifacts/*.pkl
+artifacts/*.bin
+artifacts/*.onnx
+artifacts/*.pt
+artifacts/*.h5
+artifacts/*.json
+
+# Do NOT commit datasets (stored on Hugging Face)
+data/*.csv
