@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+
+# Keep HF as source of truth for datasets/models
+# (comment these out if you intentionally want to commit CSVs/artifacts)
+# data/*.csv
+# artifacts/*.joblib
+# artifacts/*.json
